@@ -1,0 +1,11 @@
+FROM node:12
+
+ENV TIME_ZONE=America/Toronto
+
+EXPOSE 3000
+
+WORKDIR /app
+
+ENTRYPOINT []
+
+CMD []

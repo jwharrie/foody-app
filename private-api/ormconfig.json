@@ -1,0 +1,10 @@
+{
+  "type": "mysql",
+  "host": "database",
+  "port": 3306,
+  "username": "root",
+  "password": "password",
+  "database": "foody",
+  "entities": ["dist/**/*.entity{.ts,.js}"],
+  "synchronize": false
+}
