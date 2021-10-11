@@ -65,6 +65,12 @@ export default class Users extends React.Component {
     this.setState({loadData: false});
   } 
 
+  handleRemove(foodId) {
+    const btn = document.getElementById(foodId + '_remove_btn');
+    btn.disabled = true;
+    this.removeFood(foodId);
+  }
+
   render() {
     return (
       <div>
@@ -106,7 +112,13 @@ export default class Users extends React.Component {
                     <td>{userFood.food.description}</td>
                     <td>{userFood.food.publicationDate}</td>
                     <td>{userFood.servingsPerWeek ?? 0}</td>
-                    <td><button onClick={() => this.removeFood(userFood.food.id)}>Remove</button></td>
+                    <td>
+                      <button
+                        id={userFood.food.id + '_remove_btn'}
+                        onClick={() => this.handleRemove(userFood.food.id)}>
+                          Remove
+                      </button>
+                    </td>
                   </tr>)}
               </tbody>
             </table>
