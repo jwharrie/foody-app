@@ -3,6 +3,9 @@ import axios from 'axios';
 
 import '../less/global.less';
 
+const TR_CLR_1 = '#ffc8d3';
+const TR_CLR_2 = '#d9dbff';
+
 export default class Users extends React.Component {
   state = {
     users: []
@@ -25,8 +28,8 @@ export default class Users extends React.Component {
             <tr><th>ID</th><th>Name</th><th>Email</th><th>Actions</th></tr>
           </thead>
           <tbody>
-            {this.state.users.map(user => 
-              <tr key={user.id}>
+            {this.state.users.map((user, index) => 
+              <tr key={user.id} style={{backgroundColor: index % 2 === 0 ? TR_CLR_1 : TR_CLR_2}}>
                 <td>{user.id}</td>
                 <td>{user.name}</td>
                 <td>{user.email}</td>
