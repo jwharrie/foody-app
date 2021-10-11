@@ -36,6 +36,9 @@ class UserFoodController extends Controller
     public function addFood(Request $request, int $userId, int $foodId)
     {
         $servingsPerWeek = $request->input('servingsPerWeek');
+        if ($servingsPerWeek < 1) {
+            return response('Servings per week must be greater than 0.', 400);
+        }
         
         $response = Http::put("{$this->privateApiUrl}/users/{$userId}/foods/{$foodId}", [
             'servingsPerWeek' => $servingsPerWeek
