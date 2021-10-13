@@ -5,6 +5,8 @@ import SearchDropdown from './SearchDropdown';
 import '../less/global.less';
 import '../less/user.less';
 
+const REMOVE_BTN_SUFFIX = '_remove_btn';
+
 export default class Users extends React.Component {
 
   state = {
@@ -66,7 +68,7 @@ export default class Users extends React.Component {
   } 
 
   handleRemove(foodId) {
-    const btn = document.getElementById(foodId + '_remove_btn');
+    const btn = document.getElementById(foodId + REMOVE_BTN_SUFFIX);
     btn.disabled = true;
     this.removeFood(foodId);
   }
@@ -114,7 +116,7 @@ export default class Users extends React.Component {
                     <td>{userFood.servingsPerWeek ?? 0}</td>
                     <td>
                       <button
-                        id={userFood.food.id + '_remove_btn'}
+                        id={userFood.food.id + REMOVE_BTN_SUFFIX}
                         onClick={() => this.handleRemove(userFood.food.id)}>
                           Remove
                       </button>
